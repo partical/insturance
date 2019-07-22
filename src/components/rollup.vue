@@ -1,29 +1,28 @@
 <template>
 	<div class = 'rollup'>
-		<div class = 'rollupitem' v-for="(item, index) in items" :key="index">{{item.name}}</div>
+		<div class = 'rollupitem' v-for="(item, index) in rollupItems" :key="index">{{item.name}}</div>
 	</div>
 </template>
 
 <script lang='ts' >
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import anime from 'animejs';
+import anime from 'animejs/lib/anime.es.js';
 
 interface RollupItemInfo {
 	name :string;
 	url :string;
 }
 
-
 /**
  * 向上滚动组件。
  */
 @Component
-export class Rollup extends Vue{
+export default class Rollup extends Vue{
 
-	private items: RollupItemInfo[];
+	@Prop() private rollupItems!: RollupItemInfo[];
 
 	public mounted() {
-		
+			
 	}
 }
 </script>
